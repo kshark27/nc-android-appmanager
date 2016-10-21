@@ -1,6 +1,27 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.hugo'
 apply plugin: 'com.neenbedankt.android-apt'
+
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 0
+
+def VERSION_CODE = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+def VERSION_NAME = "${versionMajor}.${versionMinor}.${versionPatch}.${versionBuild}"
+def APP_NAME = "AppManager"
+def APP_NAME_DEBUG = "AppManager-debug"
+
+def gitSha() {
+    return 'git rev-parse --short HEAD'.execute().text.trim()
+}
+
+def buildTime() {
+    def df = new SimpleDateFormat("ddMMyyyyHHmm")
+    return df.format(Calendar.getInstance().getTime())
+}
 
 android {
     compileSdkVersion 23
@@ -9,7 +30,7 @@ android {
         variant.outputs.each { output ->
             output.outputFile = new File(
                     output.outputFile.parent,
-                    output.outputFile.name.replace(output.outputFile.name, VERSION_CODE + "-" + VERSION_NAME + "-" + APP_NAME + ".apk"))
+                    output.outputFile.name.replace(output.outputFile.name, APP_NAME + "-" + VERSION_NAME + "-" + buildTime() + "-" + gitSha() + ".apk"))
         }
     }
     compileSdkVersion 24
@@ -18,8 +39,8 @@ android {
         applicationId "com.nhancv.appmanager"
         minSdkVersion 16
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -30,7 +51,7 @@ android {
         }
         debug {
             debuggable true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             manifestPlaceholders = [appName: APP_NAME_DEBUG]
             minifyEnabled true
             shrinkResources true

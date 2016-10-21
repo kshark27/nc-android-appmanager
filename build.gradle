@@ -1,12 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext {
-        VERSION_CODE = 2016102019
-        VERSION_NAME = "1.0"
-        APP_NAME = "AppManager"
-        APP_NAME_DEBUG = "AppManager-debug"
-    }
     repositories {
         jcenter()
         flatDir { dirs "aars" }

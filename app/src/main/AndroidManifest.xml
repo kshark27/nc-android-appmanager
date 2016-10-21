@@ -41,12 +41,15 @@
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.Default.Translucent">
             <intent-filter>
+                <action android:name="android.settings.MANAGE_APPLICATIONS_SETTINGS"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nhancv.mainmodule.MainActivity">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
-
-                <action android:name="android.settings.MANAGE_APPLICATIONS_SETTINGS"/>
 
             </intent-filter>
         </activity>

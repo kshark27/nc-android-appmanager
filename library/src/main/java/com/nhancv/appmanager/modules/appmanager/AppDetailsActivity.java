@@ -41,7 +41,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.nhancv.appmanager.App;
 import com.nhancv.appmanager.R;
-import com.nhancv.appmanager.activities.BaseActivity;
+import com.nhancv.appmanager.BaseActivity;
 import com.nhancv.appmanager.modules.appmanager.permissions.AppSecurityPermissions;
 import com.nhancv.appmanager.utils.AppHelper;
 
@@ -194,7 +194,7 @@ public class AppDetailsActivity extends BaseActivity implements PackageStatsObse
             if (!AppHelper.isPlayStoreInstalled()) {
                 menu.removeItem(R.id.menu_action_play_store);
             }
-            // prevent disabling Device Control
+            // prevent disabling App Manager
             if (App.get().getPackageName().equals(mAppItem.getPackageName())) {
                 menu.removeItem(R.id.menu_app_disable);
             }
@@ -309,7 +309,7 @@ public class AppDetailsActivity extends BaseActivity implements PackageStatsObse
 
         setupPermissionsView();
 
-        // prevent uninstalling of Device Control
+        // prevent uninstalling of App Manager
         mUninstall.setEnabled(!TextUtils.equals(App.get().getPackageName(), mAppItem.getPackageName()));
 
         AppHelper.getSize(mPm, this, mAppItem.getPackageName());

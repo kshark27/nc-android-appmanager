@@ -9,11 +9,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.animation.Animation;
 
-import com.nhancv.appmanager.MainActivity;
-import com.nhancv.appmanager.activities.BaseActivity;
+import com.nhancv.appmanager.BaseActivity;
 import com.nhancv.appmanager.listeners.OnBackPressedListener;
 import com.nhancv.appmanager.listeners.OnSectionAttachedListener;
-import com.nhancv.appmanager.utils.AppHelper;
 
 
 public abstract class AttachFragment extends Fragment implements OnBackPressedListener {
@@ -41,21 +39,11 @@ public abstract class AttachFragment extends Fragment implements OnBackPressedLi
     @Override
     public void onResume() {
         super.onResume();
-        final Activity activity = getActivity();
-        if (!AppHelper.preventOnResume && activity instanceof MainActivity) {
-            ((MainActivity) activity).setFragment(this);
-        }
         checkMenuItem();
     }
 
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        if (MainActivity.sDisableFragmentAnimations) {
-            final Animation a = new Animation() {
-            };
-            a.setDuration(0);
-            return a;
-        }
         return super.onCreateAnimation(transit, enter, nextAnim);
     }
 

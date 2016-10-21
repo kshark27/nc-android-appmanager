@@ -6,7 +6,7 @@ package com.nhancv.appmanager.modules.preferences;
 import android.os.Bundle;
 
 import com.nhancv.appmanager.R;
-import com.nhancv.appmanager.activities.BaseActivity;
+import com.nhancv.appmanager.BaseActivity;
 
 
 public class PreferencesActivity extends BaseActivity {

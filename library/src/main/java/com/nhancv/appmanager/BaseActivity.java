@@ -1,7 +1,7 @@
 /**
  * Created by nhancao on 10/21/16.
  */
-package com.nhancv.appmanager.activities;
+package com.nhancv.appmanager;
 
 import android.app.ActivityManager.TaskDescription;
 import android.content.BroadcastReceiver;
@@ -28,7 +28,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.nhancv.appmanager.R;
 import com.nhancv.appmanager.models.AppResources;
 
 import java.util.ArrayList;

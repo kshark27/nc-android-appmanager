@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 
-import com.nhancv.appmanager.MainActivity;
 import com.nhancv.appmanager.R;
 
 import java.util.ArrayList;
@@ -49,12 +48,6 @@ public abstract class AttachViewPagerFragment extends AttachFragment {
 
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        if (MainActivity.sDisableFragmentAnimations) {
-            final Animation a = new Animation() {
-            };
-            a.setDuration(0);
-            return a;
-        }
         return super.onCreateAnimation(transit, enter, nextAnim);
     }
 

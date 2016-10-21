@@ -35,42 +35,28 @@
         android:theme="@style/AppTheme.Default"
         tools:replace="android:supportsRtl">
         <activity
-            android:name=".MainActivity"
+            android:name=".modules.appmanager.AppManagerActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.Default.Translucent">
             <intent-filter>
-                <action android:name="com.nhancv.appmanager.MainActivity"/>
-                <action android:name="com.nhancv.appmanager.activities.MainActivity"/>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".modules.appmanager.AppManagerActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_manager"
-            android:launchMode="singleTask"
-            android:parentActivityName=".MainActivity"
-            android:taskAffinity="">
-            <intent-filter>
+
                 <action android:name="android.settings.MANAGE_APPLICATIONS_SETTINGS"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+
             </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
         </activity>
         <activity
             android:name=".modules.appmanager.AppDetailsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_details"
             android:launchMode="singleTask"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".modules.appmanager.AppManagerActivity"
             android:taskAffinity="">
             <intent-filter>
                 <action android:name="android.settings.APPLICATION_DETAILS_SETTINGS"/>
@@ -82,18 +68,18 @@
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".modules.appmanager.AppManagerActivity"/>
         </activity>
         <activity
             android:name=".modules.preferences.PreferencesActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/preferences"
             android:launchMode="singleTask"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".modules.appmanager.AppManagerActivity"
             android:taskAffinity="">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".modules.appmanager.AppManagerActivity"/>
         </activity>
     </application>
 

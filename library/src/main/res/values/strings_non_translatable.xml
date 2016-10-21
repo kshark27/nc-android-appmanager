@@ -25,7 +25,7 @@
     <string name="font_condensed" translatable="false">sans-serif-condensed</string>
     <string name="font_light" translatable="false">sans-serif-light</string>
     <!-- Strings -->
-    <string name="app_name" translatable="false">Device Control</string>
+    <string name="app_name" translatable="false">App Manager</string>
     <string name="unknown" translatable="false">---</string>
     <!-- Dalvik -->
     <!-- Licenses -->

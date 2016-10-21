@@ -11,9 +11,9 @@
 -keepattributes SourceFile,LineNumberTable
 
 # Also save some stuff from us
--keep class org.namelessrom.devicecontrol.objects.** { *; }
--keep class org.namelessrom.devicecontrol.modules.wizard.** { *; }
--keep class org.namelessrom.devicecontrol.models.** { *; }
+-keep class com.nhancv.appmanager.objects.** { *; }
+-keep class com.nhancv.appmanager.modules.wizard.** { *; }
+-keep class com.nhancv.appmanager.models.** { *; }
 
 # Do not break our reflection voodoo
 -keep class android.content.pm.IPackageStatsObserver
